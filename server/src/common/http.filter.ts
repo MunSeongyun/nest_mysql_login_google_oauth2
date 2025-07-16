@@ -10,6 +10,7 @@ import {
 import { Request, Response } from 'express';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
+// 윈스턴을 사용한 전체 앱 필터
 @Catch()
 export class HttpFilter implements ExceptionFilter {
   constructor(

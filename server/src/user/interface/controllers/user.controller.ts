@@ -25,8 +25,8 @@ export class UsersController {
   @Patch()
   async nameChange(@Req() req: CustomRequest, @Body() body: NameChangeInput) {
     const user = req.user;
-    const updatedUser = await this.changeUserName.execute(user.id, body.name);
-    return { message: '이름이 수정되었습니다.', userInfo: updatedUser };
+    await this.changeUserName.execute(user.id, body.name);
+    return { message: '이름이 수정되었습니다.' };
   }
 
   // 로그인 한 유저의 정보 반환

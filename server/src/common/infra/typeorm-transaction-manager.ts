@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { TransactionManager } from '../ports/transaction-manager.port';
 import { DataSource, QueryRunner } from 'typeorm';
 
+// 트랜잭션 실행
 @Injectable()
 export class TypeormTransactionManager implements TransactionManager {
   constructor(private readonly dataSource: DataSource) {}

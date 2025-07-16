@@ -10,7 +10,7 @@ export class TokenService {
     private readonly jwt: JwtService,
     private readonly configService: ConfigService,
   ) {}
-  // token 생성, 내부 정보: userId,name,email , 유효시간 1시간
+  // token 생성, 내부 정보: userId,name,email , 유효시간 5시간
   async generateAccessToken(
     userId: number,
     name: string,
