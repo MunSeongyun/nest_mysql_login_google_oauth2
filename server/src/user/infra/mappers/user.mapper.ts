@@ -6,15 +6,9 @@ export const toOrmEntity = (user: User): UserOrmEntity => {
   orm.email = user.email;
   orm.name = user.name;
   if (user.id) orm.id = user.id;
-  if (user.createDate) orm.createDate = user.createDate;
   return orm;
 };
 export const toDomain = (userOrm: UserOrmEntity): User => {
-  const domain = new User(
-    userOrm.name,
-    userOrm.email,
-    userOrm.id,
-    userOrm.createDate,
-  );
+  const domain = new User(userOrm.name, userOrm.email, userOrm.id);
   return domain;
 };

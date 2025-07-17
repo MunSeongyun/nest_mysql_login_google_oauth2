@@ -32,6 +32,7 @@ docker-compose up
     - DB_USERNAME: NestJS에서 DB에 접속할 때 사용할 유저이름
     - DB_PASSWORD: NestJS에서 DB에 접속할 때 사용할 비밀번호
     - DB_DATABASE: DB에 기본적으로 생성할 데이터베이스
+    - DB_TZ: DB에서 사용할 Time Zone
 
 ### /server/.env
 - NestJS프로젝트에서 사용하는 환경변수 파일입니다.

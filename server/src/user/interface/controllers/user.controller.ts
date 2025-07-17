@@ -2,7 +2,7 @@ import { Body, Controller, Get, Patch, Req, UseGuards } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AuthGuard } from 'src/shared/guards/auth.guard';
 import { CustomRequest } from 'src/shared/types/custom-request';
-import { NameChangeInput } from 'src/user/application/dto/name-change.dto';
+import { ChangeNameInput } from 'src/user/application/dto/change-name.dto';
 import { ChangeUserName } from 'src/user/application/use-cases/change-user-name-use-case';
 import { GetUserInfo } from 'src/user/application/use-cases/get-user-info.use-case';
 
@@ -15,15 +15,15 @@ export class UsersController {
 
   // 유저의 이름 변경
   @ApiOperation({ summary: '유저의 이름을 변경합니다.' })
-  @ApiBody({ type: NameChangeInput })
+  @ApiBody({ type: ChangeNameInput })
   @ApiResponse({
     example: {
       message: '이름이 수정되었습니다.',
     },
   })
   @UseGuards(AuthGuard)
-  @Patch()
-  async nameChange(@Req() req: CustomRequest, @Body() body: NameChangeInput) {
+  @Patch('name')
+  async changeName(@Req() req: CustomRequest, @Body() body: ChangeNameInput) {
     const user = req.user;
     await this.changeUserName.execute(user.id, body.name);
     return { message: '이름이 수정되었습니다.' };
@@ -43,7 +43,7 @@ export class UsersController {
     },
   })
   @UseGuards(AuthGuard)
-  @Get()
+  @Get('info')
   async findUserInfo(@Req() req: CustomRequest) {
     const userId = req.user.id;
     const userInfo = await this.getUserInfo.execute(userId);

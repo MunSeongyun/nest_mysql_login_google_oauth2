@@ -37,6 +37,7 @@ docker-compose up
 |DB\_USERNAME|DBに接続するユーザー名|
 |DB\_PASSWORD|DBに接続するパスワード|
 |DB\_DATABASE|初期作成するデータベース名|
+|DB\_TZ|Time Zone|
 
 ### /server/.env（NestJS 用）
 
